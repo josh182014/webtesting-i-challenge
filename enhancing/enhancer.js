@@ -7,7 +7,7 @@ module.exports = {
 
 function succeed(item) {
   if (item.enhancement === 20 ) {
-    return item
+    return {...item}
   }
   else if (item.enhancement >=0 && item.enhancement <=20) {
     return {...item, enhancement: item.enhancement + 1};
@@ -44,5 +44,5 @@ function repair(item) {
 }
 
 function get(item) {
-  return { ...item };
+  return { ...item, name: `[+${item.enhancement}] ` + item.name };
 }

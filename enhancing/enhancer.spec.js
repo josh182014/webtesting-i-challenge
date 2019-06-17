@@ -27,6 +27,7 @@ describe('enhancer.js', () => {
     describe('fail()', () => {
         it('decreases the durability by 5', () => {
             expect(enhancer.fail({durability: 10, enhancement: 10 }).durability).toBe(5);
+            expect(enhancer.fail({durability: 101, enhancement: 10 })).toEqual({error: "Check ranges"});
         })
         it('decreases the durability by 10', () => {
             expect(enhancer.fail({durability: 10, enhancement: 15 }).durability).toBe(0)
@@ -36,6 +37,12 @@ describe('enhancer.js', () => {
             expect(enhancer.fail({durability: 15, enhancement: 18 }).durability).toBe(5)
             expect(enhancer.fail({durability: 15, enhancement: 18 }).enhancement).toBe(17)
             expect(enhancer.fail({durability: 19, enhancement: 19 })).toEqual({durability: 9, enhancement: 18})
+        })
+    })
+
+    describe('get()', () => {
+        it('returns name with enhancment level added before it ', () => {
+            expect(enhancer.get({enhancement: 10, name: "hi"}).name).toBe('[+10] hi')
         })
     })
 })
