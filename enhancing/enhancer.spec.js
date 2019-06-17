@@ -42,7 +42,8 @@ describe('enhancer.js', () => {
 
     describe('get()', () => {
         it('returns name with enhancment level added before it ', () => {
-            expect(enhancer.get({enhancement: 10, name: "hi"}).name).toBe('[+10] hi')
+            expect(enhancer.get({enhancement: 10, name: "cool name"}).name).toBe('[+10] cool name')
+            expect(enhancer.get({enhancement: 0, name: "cool name"}).name).toBe('cool name')
         })
     })
 })
