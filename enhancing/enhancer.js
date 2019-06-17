@@ -14,7 +14,9 @@ function fail(item) {
 }
 
 function repair(item) {
-  return { ...item };
+  if (item.durability >= 0 && item.durability <= 100) {
+    return { ...item, durability: 100 };
+  }
 }
 
 function get(item) {
