@@ -1,11 +1,4 @@
 const enhancer = require('./enhancer.js');
-// test away!
-// item = {
-//     name: "whatever",
-//     durability: 0-100,
-//     enhancement: 0-20
-// }
-
 
 describe('enhancer.js', () => {
     describe('repair()', () => {
